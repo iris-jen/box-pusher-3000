@@ -5,7 +5,8 @@ const MoveBox = (entities, { input }) => {
     //-- That said, it's probably worth considering performance implications in either case.
   
     const { payload } = input.find(x => x.name === "onMouseDown") || {};
-  
+    console.log(input)
+
     if (payload) {
       const box1 = entities["box1"];
   
@@ -16,4 +17,7 @@ const MoveBox = (entities, { input }) => {
     return entities;
   };
   
-  export { MoveBox };
+
+
+
+export { MoveBox};
