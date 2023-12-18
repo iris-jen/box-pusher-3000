@@ -6,6 +6,21 @@ function isEven (number) {
   return number % 2 === 0;
 }
 
+class Score extends Component {
+  render() {
+    const size = 100;
+    const x = this.props.x - size / 2;
+    const y = this.props.y - size / 2;
+    const score = this.props.score;
+
+    return (
+      <div  style={{ position: "absolute", width: 200, height: 100, backgroundColor: "white", left: x, top: y }}>
+        <h1>Score: {score}</h1>
+      </div>    
+    );
+  }
+}
+
 class Player extends Component {
   render() {
     const size = 100;
@@ -50,4 +65,4 @@ class Hole extends Component{
   }
 }
 
-export { Player, Hole, Box };
+export { Player, Hole, Box , Score};

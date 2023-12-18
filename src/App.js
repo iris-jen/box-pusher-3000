@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { GameEngine } from "react-game-engine";
-import { Player, Hole, Box } from "./renderers";
+import { Player, Hole, Box, Score } from "./renderers";
 import { MovePlayer } from "./systems";
+import { Stack } from "react-bootstrap";
 
 const getCurrentDimension = () => ({
   width: window.innerWidth,
@@ -13,7 +14,7 @@ const getCurrentDimension = () => ({
 
 export default function SimpleGame() {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
-
+  
   useEffect(() => {
     const updateDimension = () => {
       setScreenSize(getCurrentDimension());
@@ -30,7 +31,11 @@ export default function SimpleGame() {
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">💥💥💥💥Box Pusher 30000000💥💥💥💥</Navbar.Brand>
+          <Stack direction="horizontal" gap={10}>
+            <Navbar.Brand href="#home">💥💥💥💥Box Pusher 3000💥💥💥💥</Navbar.Brand>
+       
+          </Stack>
+
         </Container>
       </Navbar>
 
@@ -39,6 +44,7 @@ export default function SimpleGame() {
                             backgroundColor: "pink" }}
         systems={[MovePlayer]}
         entities={{
+          score: {x: 900, y: 200, score:0, renderer: <Score/>},
           box: {x:400, y:400, renderer: <Box/>},
           player: { x: 100, y: 100, renderer: <Player /> },
           hole: {x: 600, y: 600, renderer: <Hole/>}}}/>

@@ -6,20 +6,22 @@ const MovePlayer = (entities, { input }) => {
       const box = entities["box"];
       const hole = entities["hole"];
 
+      const score = entities["score"];
+
       var playerX = player.x;
       var playerY = player.y;
 
       if(payload.keyCode == 87){
-        playerY-=5;
+        playerY-=10;
       }
       if(payload.keyCode == 83){
-        playerY+=5;
+        playerY+=10;
       }
       if(payload.keyCode == 65){
-        playerX-=5;
+        playerX-=10;
       }
       if(payload.keyCode == 68){
-        playerX+=5;
+        playerX+=10;
       }
 
       var playerBottom = playerY+100;
@@ -82,6 +84,7 @@ const MovePlayer = (entities, { input }) => {
  
        player.x = 100;
        player.y = 100;
+       score.score+=1;
 
        alert("Wow, good work pushing that box into that hole! :) \r\n" +
        "As your reward, here is a new box to push towards a more distant hole!\r\n")
@@ -89,7 +92,7 @@ const MovePlayer = (entities, { input }) => {
       else if(boxTop <= holeBottom && boxBottom > holeBottom && inLineWithHoleTop){
         holeY-=100;
         console.log("box in hole from bottom");
-
+        score.score+=1;
 
         alert("Wow, good work pushing that box into that hole! :) \r\n" +
         "As your reward, here is a new box to push towards a more distant hole!\r\n")
@@ -99,7 +102,7 @@ const MovePlayer = (entities, { input }) => {
       {
         holeX+=100;
         console.log("box in hole from left");
-
+        score.score+=1;
 
         box.x = 300;
         box.y = 300;
@@ -120,7 +123,7 @@ const MovePlayer = (entities, { input }) => {
         player.x = 100;
         player.y = 100;
 
-  
+        score.score+=1;
         alert("Wow, good work pushing that box into that hole! :) \r\n" +
         "As your reward, here is a new box to push towards a more distant hole!\r\n")
       }
