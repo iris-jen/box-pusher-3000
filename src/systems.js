@@ -1,4 +1,3 @@
-
 const MovePlayer = (entities, { input }) => {
     const { payload } = input.find(x => x.name === "onKeyDown") || {};
 
@@ -35,7 +34,6 @@ const MovePlayer = (entities, { input }) => {
       var boxTop = boxY;
       var boxLeft = boxX
       var boxRight = boxX+50;
-
 
       var inLineWithBoxTop =  playerLeft - 50 <= boxLeft && playerRight + 50 >= boxRight ;
       var inLineWithBoxSide = playerTop  <= boxTop && playerBottom >= boxBottom;
@@ -85,16 +83,16 @@ const MovePlayer = (entities, { input }) => {
        player.x = 100;
        player.y = 100;
 
-       alert("Wow good work pushing that box into that hole! \r\n" +
-       "As your reward here is a brand new heavier box to push towards a further hole :) \r\n")
+       alert("Wow, good work pushing that box into that hole! :) \r\n" +
+       "As your reward, here is a new box to push towards a more distant hole!\r\n")
       }
       else if(boxTop <= holeBottom && boxBottom > holeBottom && inLineWithHoleTop){
         holeY-=100;
         console.log("box in hole from bottom");
 
 
-        alert("Wow good work pushing that box into that hole! \r\n" +
-        "As your reward here is a brand new heavier box to push towards a further hole :) \r\n")
+        alert("Wow, good work pushing that box into that hole! :) \r\n" +
+        "As your reward, here is a new box to push towards a more distant hole!\r\n")
       
       }
       else if(boxRight >= holeLeft &&  boxLeft < holeRight && inLineWithHoleSide)
@@ -109,8 +107,8 @@ const MovePlayer = (entities, { input }) => {
         player.x = 100;
         player.y = 100;
 
-        alert("Wow good work pushing that box into that hole! \r\n" +
-        "As your reward here is a brand new heavier box to push towards a further hole :) \r\n")
+        alert("Wow, good work pushing that box into that hole! :) \r\n" +
+       "As your reward, here is a new box to push towards a more distant hole!\r\n")
       }
       else if(boxLeft <= holeRight && boxRight > holeLeft &&inLineWithHoleSide){
         holeY+=100;
@@ -123,8 +121,8 @@ const MovePlayer = (entities, { input }) => {
         player.y = 100;
 
   
-        alert("Wow good work pushing that box into that hole! \r\n" +
-        "As your reward here is a brand new heavier box to push towards a further hole :) \r\n")
+        alert("Wow, good work pushing that box into that hole! :) \r\n" +
+        "As your reward, here is a new box to push towards a more distant hole!\r\n")
       }
 
       hole.y = holeY;
@@ -132,7 +130,5 @@ const MovePlayer = (entities, { input }) => {
     }
     return entities;
   };
-
-
 
 export { MovePlayer };

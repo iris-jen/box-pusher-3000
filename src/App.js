@@ -1,8 +1,6 @@
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
-
+import Card from 'react-bootstrap/Card';
 import Navbar from 'react-bootstrap/Navbar';
 
 import React, { useEffect, useState } from "react";
@@ -35,6 +33,7 @@ export default function SimpleGame() {
           <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
               <Navbar.Brand href="#home">💥💥💥💥Box Pusher 30000000💥💥💥💥</Navbar.Brand>
+              <Card/>
             </Container>
           </Navbar>
 
