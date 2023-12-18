@@ -7,8 +7,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import React, { useEffect, useState } from "react";
 import { GameEngine } from "react-game-engine";
-import { Box } from "./renderers";
-import { MoveBox } from "./systems";
+import { Player, Hole, Box } from "./renderers";
+import { MovePlayer } from "./systems";
 
 const getCurrentDimension = () => ({
   width: window.innerWidth,
@@ -28,7 +28,7 @@ export default function SimpleGame() {
     return () => {
       window.removeEventListener("resize", updateDimension);
     };
-  }, []); // Empty dependency array to run the effect only once
+  }, []); 
 
   return (
     <div>
@@ -44,9 +44,11 @@ export default function SimpleGame() {
               height: screenSize.height,
               backgroundColor: "pink",
             }}
-            systems={[MoveBox]}
+            systems={[MovePlayer]}
             entities={{
-              box1: { x: 200, y: 200, renderer: <Box /> },
+              box: {x:400, y:400, renderer: <Box/>},
+              player: { x: 100, y: 100, renderer: <Player /> },
+              hole: {x: 600, y: 600, renderer: <Hole/>}
             }}
           />
     </div>
