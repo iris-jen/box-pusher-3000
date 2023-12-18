@@ -11,8 +11,13 @@ Made with
 -------------------------------------------------
 
 React
+------
 https://create-react-app.dev/
+
 React Game Engine
+-----------------
 https://github.com/bberak/react-game-engine
+
 React Bootstrap
+---------------
 https://react-bootstrap.netlify.app/
